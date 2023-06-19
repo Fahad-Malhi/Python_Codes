@@ -1,0 +1,25 @@
+
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+
+name=name1+name2
+namel=name.lower()
+
+t=namel.count("t")
+r=namel.count("r")
+u=namel.count("u")
+e=namel.count("e")
+l=namel.count("l")
+o=namel.count("o")
+v=namel.count("v")
+tscore=str(t+r+u+e)
+lscore=str(l+o+v+e)
+score=tscore + lscore
+intscore=int(score)
+if intscore<10 or intscore>90:
+    print(f"Your score is {intscore}, you go together like coke and mentos.")
+elif intscore>40 and intscore<50:
+    print(f"Your score is {intscore}, you are alright together")
+else:
+    print(f"Your score is {intscore}.")
