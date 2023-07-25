@@ -1,0 +1,29 @@
+word_list = ["aardvark", "baboon", "camel"]
+import random
+chosen_word=random.choice(word_list)
+print("Solution ",str(chosen_word))
+list(chosen_word)
+print("The Word has "+str(len(chosen_word))+" letters")
+word=[]
+dash=["_"]
+for x in range (0,len(chosen_word)):
+  word=word+dash
+print(word)
+
+mistake=0
+while mistake<6 and word!=chosen_word:
+  guess=input("Guess a Letter ").lower()
+  x=0
+  while x in range(0,len(chosen_word)):
+    if guess==chosen_word[x]:
+      word[x]=guess
+    x=x+1
+  if guess not in chosen_word:
+    mistake +=1
+  print(word)
+  print("You have "+str((6-mistake))+" chances left")
+  
+if mistake==6:
+  print("You Lost")
+else:
+  print("You Won")
