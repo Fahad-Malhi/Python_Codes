@@ -1,0 +1,89 @@
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+from hangman_words import word_list
+#word_list = ["aardvark", "baboon", "camel"]
+import random
+chosen_word=random.choice(word_list)
+
+list(chosen_word)
+print("The Word has "+str(len(chosen_word))+" letters")
+word=[]
+dash=["_"]
+for x in range (0,len(chosen_word)):
+  word=word+dash
+print(f"{' '.join(word)}")
+
+mistake=0
+end=False
+while mistake<6 and not end:
+  guess=input("Guess a Letter ").lower()
+  x=0
+  while x in range(0,len(chosen_word)):
+    if guess==chosen_word[x]:
+      word[x]=guess
+    x=x+1
+  if guess not in chosen_word:
+    mistake +=1
+  print(f"{' '.join(word)}")
+  #print(word)
+  print(stages[6-mistake])
+  if "_" not in word:
+        end = True
+        print("You win.")
+if mistake==6:
+  print("You Lost")
+  print("Solution ",str(chosen_word))
