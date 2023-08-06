@@ -1,66 +1,10 @@
-# Final Game Link
-# https://replit.com/@FahadMalhi/Hang-Man-1?v=1
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+from hangman_art import stages,logo
+from replit import clear
 from hangman_words import word_list
 #word_list = ["aardvark", "baboon", "camel"]
 import random
+print (logo)
 chosen_word=random.choice(word_list)
-
 list(chosen_word)
 print("The Word has "+str(len(chosen_word))+" letters")
 word=[]
@@ -71,8 +15,10 @@ print(f"{' '.join(word)}")
 
 mistake=0
 end=False
+
 while mistake<6 and not end:
   guess=input("Guess a Letter ").lower()
+  clear()
   x=0
   while x in range(0,len(chosen_word)):
     if guess==chosen_word[x]:
